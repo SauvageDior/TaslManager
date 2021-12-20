@@ -4,7 +4,7 @@ import java.sql.Time;
 import java.util.Date;
 import java.util.UUID;
 
-public class Alert extends Thread {
+public class Alert implements Runnable {
 
     private UUID id;
     private Time alertTime;
@@ -16,8 +16,10 @@ public class Alert extends Thread {
         this.alertTime = alertTime;
         this.message = message;
         //this.taskId = taskId;
-        start();
+        //start();
     }
+
+    public Alert(){}
 
     public Time getAlertTime() {
         return alertTime;
@@ -36,7 +38,7 @@ public class Alert extends Thread {
 
     public void run(){
         try {
-            sleep(alertTime.getTime() - new Date().getTime());
+            Thread.sleep(alertTime.getTime() - new Date().getTime());
             //TODO сигнализация о настпление времени таски
             System.out.println("Task started:" + message);
         } catch (InterruptedException e) {

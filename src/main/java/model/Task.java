@@ -4,6 +4,7 @@ import java.sql.Time;
 import java.util.UUID;
 
 
+
 public class Task {
 
     private String description;
@@ -21,13 +22,22 @@ public class Task {
         this.alert = new Alert(UUID.randomUUID(), time, "NULL");
     }
 
+    public Task(String name, String description, UUID userId, UUID id, Alert alert){
+        this.description = description;
+        this.name = name;
+        this.userId = userId;
+        this.id = id;
+        this.alert = alert;
+    }
+
+    public Task(){}
+
 
 
     public void setAlertTime(Time time){
         alert.setAlertTime(time);
     }
 
-    public Time getAlertTime(){ return alert.getAlertTime(); }
 
     public void setMessage(String message) {this.alert.setMessage(message);}
 

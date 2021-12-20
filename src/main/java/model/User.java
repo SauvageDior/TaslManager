@@ -2,18 +2,23 @@ package model;
 
 import model.Task;
 
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.List;
 import java.util.UUID;
+
 
 public class User {
 
     private UUID id;
     private List<Task> tasks;
 
-   /* User(UUID id, List<Task> taskList){
+   public User(UUID id, List<Task> taskList) {
         this.id = id;
         this.tasks = taskList;
-    }*/
+    }
+
+    public User(){}
+
 
     public UUID getId() {
         return id;

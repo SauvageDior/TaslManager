@@ -12,10 +12,10 @@ public interface TaskDAO {
 
     void deleteTask(UUID taskId);
 
-    List<Task> findAllTasks(UUID userId);
+    List<Task> findAllTasks(UUID userId) throws IOException;
 
-    Task loadTask(UUID taskId) throws NotFoundException;
+    Task loadTask(UUID taskId) throws NotFoundException, IOException;
 
-    void storeTask(Task task);
+    void storeTask(Task task) throws IOException;
 
 }
