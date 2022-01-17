@@ -1,15 +1,19 @@
 package model;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import model.Task;
 
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 import java.util.List;
 import java.util.UUID;
 
-
-public class User {
+@XmlRootElement
+public class User implements Serializable {
 
     private UUID id;
+    @XmlElement
     private List<Task> tasks;
 
    public User(UUID id, List<Task> taskList) {

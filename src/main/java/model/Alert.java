@@ -1,11 +1,17 @@
 package model;
 
+import java.beans.Transient;
 import java.sql.Time;
 import java.util.Date;
 import java.util.UUID;
 
-public class Alert implements Runnable {
 
+
+
+public class Alert implements Runnable /*extends Thread*/ {
+
+
+    transient private Thread al;
     private UUID id;
     private Time alertTime;
     private String message;
@@ -16,7 +22,8 @@ public class Alert implements Runnable {
         this.alertTime = alertTime;
         this.message = message;
         //this.taskId = taskId;
-        //start();
+        al = new Thread(this);
+        al.start();
     }
 
     public Alert(){}

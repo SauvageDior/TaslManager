@@ -19,10 +19,7 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.sql.Time;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 public class Main {
     //tests
@@ -31,8 +28,28 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 	        //Alert al = new Alert(UUID.randomUUID(), new Time(new Date().getTime() + 10000), "1234", UUID.randomUUID());
+
+   /*     User user = new User();
+        Task t1 = new Task("123", "111", UUID.randomUUID(), UUID.randomUUID(), new Time(new Date().getTime()+15000));
+        Task t2 = new Task("123", "111", UUID.randomUUID(), UUID.randomUUID(), new Time(new Date().getTime()+20000));
+        List <Task> list = new ArrayList();
+        list.add(t1);
+        list.add(t2);
+        user.setTasks(list);
+
+        newSerializeToXML(user);*/
+
+      /*
         Task task1 = new Task("123", "111", UUID.randomUUID(), UUID.randomUUID(), new Time(new Date().getTime() + 30000));
-        Task task2 = new Task("123", "111", UUID.randomUUID(), UUID.randomUUID(), new Time(new Date().getTime()+15000));
+        List<Task> tasklist = new ArrayList<>();
+        tasklist.add(task1);
+        User user = new User(UUID.randomUUID(), tasklist);
+        serializeToXML(user);*/
+
+
+
+
+        /*Task task2 = new Task("123", "111", UUID.randomUUID(), UUID.randomUUID(), new Time(new Date().getTime()+15000));
         Task task3 = new Task("123", "111", UUID.randomUUID(), UUID.randomUUID(), new Time(new Date().getTime()+20000));
         Task task4 = new Task("123", "111", UUID.randomUUID(), UUID.randomUUID(), new Time(new Date().getTime()+25000));
         List<Task> taskList = new ArrayList<>();
@@ -48,8 +65,8 @@ public class Main {
         User user1 = new User(UUID.randomUUID(), taskList);
         User user2 = new User(UUID.randomUUID(), taskList2);
 
-       /* user1.setTasks(taskList);
-        user2.setTasks(taskList2);*/
+        user1.setTasks(taskList);
+        user2.setTasks(taskList2);
 
         task1.setMessage("task1");
         task2.setMessage("task2");
@@ -57,22 +74,27 @@ public class Main {
         task4.setMessage("task4");
 
         Alert alert = task1.getAlert();
-        System.out.println(alert);
+        System.out.println(alert);*/
 
 
 
+        /*
         System.out.println(user1.getTasks());
         System.out.println(user2.getTasks());
 
-        TaskController tk = new TaskController();
+        int menu = 0;
+        Scanner scanner = new Scanner(System.in);
+        menu = scanner.nextInt();*/
+
+        /*TaskController tk = new TaskController();
 
         tk.deleteTask(task1.getId());
         System.out.println("-------------------");
-        System.out.println(taskList);
+        System.out.println(taskList);*/
 
 //////////////////////////////////////////////////////////////
         //serializeToXML(user1);
-        serializeToXML(user);
+        //serializeToXML(user);
        /* User user3 = new User();
         user3 = deserializeFromXML();
         System.out.println("=========================");

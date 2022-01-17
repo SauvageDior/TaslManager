@@ -26,6 +26,7 @@ public class TaskController {
     public Task unsheludeTask(UUID taskId) throws NotFoundException, IOException { // убрать алерт
         Task task = taskDAO.loadTask(taskId);
         task.setAlertTime(null);
+        taskDAO.storeTask(task);
         return task;
     }
 
@@ -40,6 +41,7 @@ public class TaskController {
     public Task resheludeTask(UUID taskId, Time newTime) throws NotFoundException, IOException {
         Task task = taskDAO.loadTask(taskId);
         task.setAlertTime(newTime);
+        taskDAO.storeTask(task);
         return task;
     }
 

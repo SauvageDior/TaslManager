@@ -1,11 +1,22 @@
 package model;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import jdk.jfr.Name;
+import org.w3c.dom.Attr;
+
+import javax.xml.bind.Element;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 import java.sql.Time;
 import java.util.UUID;
 
 
+@XmlRootElement
+public class Task implements Serializable {
 
-public class Task {
+
+
 
     private String description;
     private String name;

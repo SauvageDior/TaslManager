@@ -29,7 +29,15 @@ public class XMLTaskDAO implements TaskDAO {
     //private static final File XML = new File("XMLtestfile");
 
     public void deleteTask(UUID taskId) {
-        List<Task> list = new ArrayList<>();
+
+        User user = null;
+        try {
+            user = loadFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        List<Task> list = user.getTasks();
         for (Task task :
                 list) {
             if (task.getId().equals(taskId)) {
@@ -37,6 +45,7 @@ public class XMLTaskDAO implements TaskDAO {
                 break;
             }
         }
+        unloadFile(user);
     }
 
     public List<Task> findAllTasks(UUID userId) throws IOException {
@@ -57,8 +66,15 @@ public class XMLTaskDAO implements TaskDAO {
     public void storeTask(Task task) throws IOException {
         //List<Task> list = new ArrayList<>();
         User user = loadFile();
-        List<Task> list = user.getTasks();
-        list.add(task);
+        if (user.getTasks() == null){
+            List<Task> list = new ArrayList<>();
+            list.add(task);
+            user.setTasks(list);
+        }
+        else {
+            List<Task> list = user.getTasks();
+            list.add(task);
+        }
         unloadFile(user);
     }
 
@@ -83,7 +99,7 @@ public class XMLTaskDAO implements TaskDAO {
 
             String xmlString = xmlMapper.writeValueAsString(user);
 
-            System.out.println(xmlString);
+            //System.out.println(xmlString);
 
             File xmlOutput = new File("XMTesticle.xml");
             FileWriter fileWriter = new FileWriter(xmlOutput);
