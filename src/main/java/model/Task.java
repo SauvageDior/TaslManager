@@ -12,7 +12,7 @@ import java.sql.Time;
 import java.util.UUID;
 
 
-@XmlRootElement
+
 public class Task implements Serializable {
 
 
@@ -30,7 +30,7 @@ public class Task implements Serializable {
         this.name = name;
         this.userId = userId;
         this.id = id;
-        this.alert = new Alert(UUID.randomUUID(), time, "NULL");
+        this.alert = new Alert(UUID.randomUUID(), time, "Not entered");
     }
 
     public Task(String name, String description, UUID userId, UUID id, Alert alert){

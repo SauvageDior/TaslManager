@@ -9,15 +9,15 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.UUID;
 
-@XmlRootElement
+
 public class User implements Serializable {
 
     private UUID id;
-    @XmlElement
+
     private List<Task> tasks;
 
    public User(UUID id, List<Task> taskList) {
-        this.id = id;
+        this.id = UUID.randomUUID();
         this.tasks = taskList;
     }
 

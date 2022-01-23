@@ -120,24 +120,7 @@ public class XMLTaskDAO implements TaskDAO {
         return deserializedData;
     }
 
-    /*private static User loadFile() throws IOException { //загрузка из файла
-        User user = new User();
-        File XML = new File("XMTesticle.xml");
-        XmlMapper xmlMapper = new XmlMapper();
-        user = xmlMapper.readValue(XML, User.class);
-        return user;
-    }*/
 
- /*  private static void unloadFile(List<Task> task) throws IOException {
-       XMLEncoder encoder=null;
-       try{
-           encoder=new XMLEncoder(new BufferedOutputStream(new FileOutputStream(XML)));
-       }catch(FileNotFoundException fileNotFound){
-           System.out.println("");
-       }
-       encoder.writeObject(task);
-       encoder.close();
-    }*/
 
 }
 

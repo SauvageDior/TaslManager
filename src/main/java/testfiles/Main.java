@@ -1,5 +1,6 @@
 package testfiles;
 
+/*
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import interfaces.TaskDAO;
@@ -20,7 +21,9 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.sql.Time;
 import java.util.*;
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ // тестовый файл тут ничего нет
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
 public class Main {
     //tests
     //XmlMapper mapper = new XmlMapper();
@@ -126,9 +129,9 @@ public class Main {
             serializeToXML();
         } catch (IOException e) {e.printStackTrace();}*/
 
-    }
+ //   }
 
-    private static List<Task> ldFile(){
+ /*   private static List<Task> ldFile(){
         XMLDecoder decoder=null;
         try {
             decoder=new XMLDecoder(new BufferedInputStream(new FileInputStream("XMLtestfile")));
@@ -137,9 +140,9 @@ public class Main {
         }
         List<Task> tl=(List<Task>) decoder.readObject();
         return tl;
-    }
+    }*/
 
-
+/*
     private static void unloadFile(User user) throws IOException {
         XMLEncoder encoder=null;
         try{
@@ -149,10 +152,10 @@ public class Main {
         }
         encoder.writeObject(user);
         encoder.close();
-    }
+    }*/
 
 
-    public static void whenJavaSerializedToXmlFile() throws IOException {
+/*    public static void whenJavaSerializedToXmlFile() throws IOException {
         Alert alert = new Alert(UUID.randomUUID(), new Time(new Date().getTime()), "1234");
         List<Task> taskList = new ArrayList<>();
         Task task1 = new Task("123", "111", UUID.randomUUID(), UUID.randomUUID(), alert);
@@ -162,7 +165,7 @@ public class Main {
         XmlMapper xmlMapper = new XmlMapper();
         xmlMapper.writeValue(new File("XMLtestfile"), new User(UUID.randomUUID(),  taskList));
         File file = new File("XMLtestfile");
-    }
+    }*/
 
    /* public void whenJavaGotFromXmlStrWithCapitalElem_thenCorrect() throws IOException {
         XmlMapper xmlMapper = new XmlMapper();
@@ -171,7 +174,7 @@ public class Main {
 
     }*/
 
-    public static void serializeToXML(User user) { ////////////////////////////////////////////
+/*    public static void serializeToXML(User user) { ////////////////////////////////////////////
         try {
             XmlMapper xmlMapper = new XmlMapper();
 
@@ -194,8 +197,8 @@ public class Main {
         } catch (IOException e) {
             // handle the exception
         }
-    }
-
+    }*/
+/*
     public static User deserializeFromXML() throws IOException {
 
             XmlMapper xmlMapper = new XmlMapper();
@@ -209,7 +212,7 @@ public class Main {
         return deserializedData;
     }
 
-    private static void sex(User user) {
+    private static void serial(User user) {
         JAXBContext context;
         File xml = new File("sex.xml");
         try {
@@ -221,10 +224,10 @@ public class Main {
         } catch (JAXBException e) {
             throw new RuntimeException(e);
         }
-    }
+    }*/
 
 
-
+/*
     private static User loadFile() throws IOException { //загрузка из файла
         User user = null;
         File XML = new File("XMTesticle.xml");
@@ -240,8 +243,9 @@ public class Main {
         encoder.writeObject(settings);
         encoder.close();
         fos.close();
-    }
+    }*/
 
+/*
     private static User newdeserializeFromXML() throws IOException {
         FileInputStream fis = new FileInputStream("ttt.xml");
         XMLDecoder decoder = new XMLDecoder(fis);
@@ -250,7 +254,8 @@ public class Main {
         fis.close();
         return decodedSettings;
     }
+*/
 
 
 
-}
+//}

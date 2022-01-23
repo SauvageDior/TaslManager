@@ -15,13 +15,13 @@ public class Alert implements Runnable /*extends Thread*/ {
     private UUID id;
     private Time alertTime;
     private String message;
-    //private UUID taskId; // хранение задания
+
 
     public Alert(UUID id, Time alertTime, String message) {
         this.id = id;
         this.alertTime = alertTime;
         this.message = message;
-        //this.taskId = taskId;
+
         al = new Thread(this);
         al.start();
     }
@@ -47,7 +47,9 @@ public class Alert implements Runnable /*extends Thread*/ {
         try {
             Thread.sleep(alertTime.getTime() - new Date().getTime());
             //TODO сигнализация о настпление времени таски
+            System.out.println("---------------------");
             System.out.println("Task started:" + message);
+            System.out.println("---------------------");
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
