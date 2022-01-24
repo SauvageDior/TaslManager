@@ -7,7 +7,9 @@ import java.io.IOException;
 import java.util.List;
 import java.util.UUID;
 
-
+/**
+ * interface TaskDAO
+ */
 public interface TaskDAO {
 
     void deleteTask(UUID taskId);

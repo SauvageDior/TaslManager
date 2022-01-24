@@ -13,24 +13,56 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.UUID;
 
-public class TaskController {
 
+/**
+ * class TaskController
+ */
+public class TaskController {
+    /**
+     * creating TaskDAO object
+     */
     private TaskDAO taskDAO = new XMLTaskDAO();
-    //запланировать новую задачу
+
+    /**
+     * schedule task
+     * @param userId
+     * @param taskName
+     * @param taskDesc
+     * @param alertTime
+     * @return task
+     * @throws IOException
+     */
     public Task sheduleTask(UUID userId, String taskName, String taskDesc, Time alertTime) throws IOException {
         Task task = new Task(taskDesc, taskName, userId, UUID.randomUUID(), alertTime);
         taskDAO.storeTask(task);
         return task;
     }
 
-    public Task unsheludeTask(UUID taskId) throws NotFoundException, IOException { // убрать алерт
+    /**
+     * delete alert
+     * sets null alert time
+     * @param taskId
+     * @return
+     * @throws NotFoundException
+     * @throws IOException
+     */
+    public Task unsheludeTask(UUID taskId) throws NotFoundException, IOException {
         Task task = taskDAO.loadTask(taskId);
         task.setAlertTime(null);
 
         taskDAO.storeTask(task);
         return task;
     }
-    // обновить задачу
+
+    /**
+     * refresh task
+     * @param taskId
+     * @param name
+     * @param desc
+     * @return
+     * @throws NotFoundException
+     * @throws IOException
+     */
     public Task updateTask(UUID taskId, String name, String desc) throws NotFoundException, IOException {
         Task task = taskDAO.loadTask(taskId);
         task.setName(name);
@@ -38,14 +70,26 @@ public class TaskController {
         taskDAO.storeTask(task);
         return task;
     }
-    // сменить запланированное время
+
+    /**
+     * change time
+     * @param taskId
+     * @param newTime
+     * @return
+     * @throws NotFoundException
+     * @throws IOException
+     */
     public Task resheludeTask(UUID taskId, Time newTime) throws NotFoundException, IOException {
         Task task = taskDAO.loadTask(taskId);
         task.setAlertTime(newTime);
         taskDAO.storeTask(task);
         return task;
     }
-    // удалить задачу
+
+    /**
+     * delete task
+     * @param taskId
+     */
     public void deleteTask(UUID taskId)  {
         taskDAO.deleteTask(taskId);
     }

@@ -9,14 +9,23 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.UUID;
 
-
+/**
+ * class User
+ * contains list of Task
+ * @see Task
+ */
 public class User implements Serializable {
-
+    /** id */
     private UUID id;
-
+    /**  task list */
     private List<Task> tasks;
 
-   public User(UUID id, List<Task> taskList) {
+    /**
+     * constructor
+     * @param id
+     * @param taskList
+     */
+    public User(UUID id, List<Task> taskList) {
         this.id = UUID.randomUUID();
         this.tasks = taskList;
     }

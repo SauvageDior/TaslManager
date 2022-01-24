@@ -22,12 +22,19 @@ import java.util.List;
 import java.util.UUID;
 
 
-
+/**
+ * TaskDAO interface realization
+ * @see interfaces.TaskDAO
+ */
 public class XMLTaskDAO implements TaskDAO {
 
 
     //private static final File XML = new File("XMLtestfile");
 
+    /**
+     * delete
+     * @param taskId
+     */
     public void deleteTask(UUID taskId) {
 
         User user = null;
@@ -48,6 +55,12 @@ public class XMLTaskDAO implements TaskDAO {
         unloadFile(user);
     }
 
+    /**
+     * searching all tasks by id
+     * @param userId
+     * @return
+     * @throws IOException
+     */
     public List<Task> findAllTasks(UUID userId) throws IOException {
         //List<Task> list = loadFile();
         User user = loadFile();
@@ -62,7 +75,11 @@ public class XMLTaskDAO implements TaskDAO {
         return userList;
     }
 
-
+    /**
+     * saving task
+     * @param task
+     * @throws IOException
+     */
     public void storeTask(Task task) throws IOException {
         //List<Task> list = new ArrayList<>();
         User user = loadFile();
@@ -78,7 +95,13 @@ public class XMLTaskDAO implements TaskDAO {
         unloadFile(user);
     }
 
-
+    /**
+     * load task by id
+     * @param taskId
+     * @return
+     * @throws NotFoundException
+     * @throws IOException
+     */
     public Task loadTask(UUID taskId) throws NotFoundException, IOException {
         List<Task> list = new ArrayList<>();
         User user = loadFile();
@@ -92,7 +115,10 @@ public class XMLTaskDAO implements TaskDAO {
         throw new NotFoundException("");
     }
 
-
+    /**
+     * save file
+     * @param user
+     */
     public static void unloadFile(User user) {
         try {
             XmlMapper xmlMapper = new XmlMapper();
@@ -112,6 +138,11 @@ public class XMLTaskDAO implements TaskDAO {
         }
     }
 
+    /**
+     * load from file
+     * @return
+     * @throws IOException
+     */
     public static User loadFile() throws IOException {
         XmlMapper xmlMapper = new XmlMapper();
         String readContent = new String(Files.readAllBytes(Paths.get("XMTesticle.xml")));
