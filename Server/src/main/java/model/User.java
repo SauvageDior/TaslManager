@@ -1,10 +1,5 @@
 package model;
 
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import model.Task;
-
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 import java.util.List;
 import java.util.UUID;

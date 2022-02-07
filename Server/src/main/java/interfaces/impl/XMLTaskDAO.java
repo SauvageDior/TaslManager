@@ -3,33 +3,29 @@ package interfaces.impl;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
-import com.fasterxml.jackson.dataformat.xml.util.*;
-import com.fasterxml.jackson.dataformat.xml.deser.*;
 import exceptions.NotFoundException;
 import interfaces.TaskDAO;
 import model.Task;
 import model.User;
 
-
-import java.beans.XMLEncoder;
-import java.io.*;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.sql.Time;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
 
 /**
  * TaskDAO interface realization
- * @see interfaces.TaskDAO
+ * @see TaskDAO
  */
 public class XMLTaskDAO implements TaskDAO {
 
 
-    //private static final File XML = new File("XMLtestfile");
+    private static final String XML ="D:\\NetCracker\\nk\\123\\Server\\src\\main\\resources\\XMTesticle.xml";
 
     /**
      * delete
@@ -127,7 +123,7 @@ public class XMLTaskDAO implements TaskDAO {
 
             //System.out.println(xmlString);
 
-            File xmlOutput = new File("XMTesticle.xml");
+            File xmlOutput = new File(XML);
             FileWriter fileWriter = new FileWriter(xmlOutput);
             fileWriter.write(xmlString);
             fileWriter.close();
@@ -145,7 +141,7 @@ public class XMLTaskDAO implements TaskDAO {
      */
     public  User loadFile() throws IOException {
         XmlMapper xmlMapper = new XmlMapper();
-        String readContent = new String(Files.readAllBytes(Paths.get("XMTesticle.xml")));
+        String readContent = new String(Files.readAllBytes(Paths.get(XML)));
         User deserializedData = xmlMapper.readValue(readContent, User.class);
 
         return deserializedData;
