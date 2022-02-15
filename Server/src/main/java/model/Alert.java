@@ -80,9 +80,11 @@ public class Alert implements Runnable /*extends Thread*/ {
             System.out.println("Task started:" + message);
             System.out.println("---------------------");
 
+
+
             Scanner scan = new Scanner(System.in);
 
-            System.out.println("1) change\n2) done");
+            /*System.out.println("1) change\n2) done");
 
             int x = 0;
             String s = "";
@@ -106,10 +108,7 @@ public class Alert implements Runnable /*extends Thread*/ {
                 this.alertTime.setMinutes(min);
 
 
-            }
-
-
-
+            }*/
 
         } catch (InterruptedException e) {
             e.printStackTrace();

@@ -16,7 +16,7 @@ public class ComandHandler {
                 controller.sheduleTask(reqest.getUserId(), reqest.getTaskName(), reqest.getTaskDesc(), reqest.getAlertTime());
                 break;
             case "delete":
-                controller.deleteTask(reqest.getUserId());
+                controller.deleteTask(reqest.getTaskId());
                 break;
             case "update":
                 controller.updateTask(reqest.getTaskId(), reqest.getTaskName(), reqest.getTaskDesc());

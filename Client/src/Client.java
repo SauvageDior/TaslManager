@@ -23,7 +23,7 @@ class Client{
         this.ois = new ObjectInputStream(socket.getInputStream());
     }
 
-    public void execute(){
+    public void execute() throws IOException {
 
         Scanner scan = new Scanner(System.in);
         int x = 0;
@@ -86,16 +86,20 @@ class Client{
                         break;
                     case 2:
 
-                        TaskController tsk = new TaskController();
+                        //TaskController tsk = new TaskController();
+                        Reqest req = new Reqest();
                         System.out.println("task id: ");
                         String idS = scan.next();
                         UUID id = UUID.fromString(idS);
-                        tsk.deleteTask(id);
+                        req.setCommand("delete");
+                        req.setTaskId(id);
+                        oos.writeObject(req);
+                        //tsk.deleteTask(id);
 
                         break;
                     case 3:
 
-                        TaskController new_tk = new TaskController();
+                        //TaskController new_tk = new TaskController();
 
                         System.out.println("task id: ");
                         String newid = scan.next();
@@ -107,26 +111,36 @@ class Client{
                         System.out.println("new description: ");
                         String new_desc = scan.next();
 
-                        try {
-                            Task new_task = new_tk.updateTask(new_id, new_name, new_desc);
-                        } catch (NotFoundException | IOException e) {
-                            e.printStackTrace();
-                        }
+
+                            //Task new_task = new_tk.updateTask(new_id, new_name, new_desc);
+                            Reqest reqest = new Reqest();
+                            reqest.setCommand("update");
+                            reqest.setTaskId(new_id);
+                            reqest.setTaskName(new_name);
+                            reqest.setTaskDesc(new_desc);
+                        oos.writeObject(reqest);
 
                         break;
                     case 4:
 
-                        TaskController untk = new TaskController();
+                        //TaskController untk = new TaskController();
 
                         System.out.println("task id: ");
                         String idun = scan.next();
                         UUID inid = UUID.fromString(idun);
 
-                        try {
+                        Reqest _reqest = new Reqest();
+                        _reqest.setCommand("unshedule");
+                        _reqest.setTaskId(inid);
+                        _reqest.setCommand("unshedule");
+                        oos.writeObject(_reqest);
+
+
+                        /*try {
                             Task untask = untk.unsheludeTask(inid);
                         } catch (NotFoundException | IOException e) {
                             e.printStackTrace();
-                        }
+                        }*/
 
 
                 }
