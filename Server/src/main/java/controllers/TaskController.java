@@ -7,6 +7,8 @@ import model.Task;
 
 import java.io.IOException;
 import java.sql.Time;
+import java.util.Comparator;
+import java.util.List;
 import java.util.UUID;
 
 
@@ -82,6 +84,10 @@ public class TaskController {
         return task;
     }
 
+    public List<Task> getAllTasks(UUID userId) throws IOException {
+        List<Task> tasks = taskDAO.findAllTasks(userId);
+        return tasks;
+    }
     /**
      * delete task
      * @param taskId
@@ -91,10 +97,9 @@ public class TaskController {
     }
 
 
-/*
-    public void sortTasks(UUID userId, Time alertTime) throws IOException {
+/*    public void sortTasks(UUID userId, Time alertTime) throws IOException {
         List<Task> list = taskDAO.findAllTasks(userId);
-        list.sort(Comparator.comparing(Task::getAlert()));
+        list.sort(Comparator.comparing(Task::getAlert());
     }*/
 
 }

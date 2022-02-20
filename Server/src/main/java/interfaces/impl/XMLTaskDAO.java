@@ -25,7 +25,7 @@ import java.util.UUID;
 public class XMLTaskDAO implements TaskDAO {
 
 
-    private static final String XML ="D:\\NetCracker\\nk\\123\\Server\\src\\main\\resources\\XMTesticle.xml";
+    private static final String XML ="C:\\Users\\frolo\\IdeaProjects\\TaslManager\\Server\\src\\main\\resources\\XMTesticle.xml";
 
     /**
      * delete
@@ -62,8 +62,7 @@ public class XMLTaskDAO implements TaskDAO {
         User user = loadFile();
         List<Task> list = user.getTasks();
         List<Task> userList = new ArrayList<>();
-        for (Task task :
-                list) {
+        for (Task task : list) {
             if (task.getUserId().equals(userId)) {
                 userList.add(task);
             }
@@ -146,8 +145,6 @@ public class XMLTaskDAO implements TaskDAO {
 
         return deserializedData;
     }
-
-
 
 }
 
